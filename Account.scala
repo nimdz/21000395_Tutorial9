@@ -24,6 +24,7 @@ class Account (val accID:Int,var balance:Double){
     if(amount>0 && amount<=balance){
         targetAccount.Deposit(amount)
        println(s"$amount Tranfered")
+       balance -=amount
     }
    else{
       println("Amount cannot be transfer")
@@ -33,21 +34,21 @@ class Account (val accID:Int,var balance:Double){
 
 object  AccountTest{
     def main(args:Array[String]):Unit={
-      val account1 = new Account(1, 1000.0)
-      val account2 = new Account(2, 500.0)
+      val account1 = new Account(1, 10000.0)
+      val account2 = new Account(2, 5000.0)
 
       println("Initial balances:")
       println(s"Account 1: ${account1.balance}")
       println(s"Account 2: ${account2.balance}")
 
-      account1.Deposit(200.0)
-      account2.Withdraw(100.0)
+      account1.Deposit(2000.0)
+      account2.Withdraw(1000.0)
 
       println("Balances after transactions:")
       println(s"Account 1: ${account1.balance}")
       println(s"Account 2: ${account2.balance}")
 
-      account1.transfer(300.0, account2)
+      account1.transfer(3000.0, account2)
 
       println("Balances after transfer:")
       println(s"Account 1: ${account1.balance}")
